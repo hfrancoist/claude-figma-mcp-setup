@@ -586,10 +586,7 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         macOS · Linux · Windows
       </span>
-      <span class="meta-chip">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Source: builder.io
-      </span>
+
     </div>
   </section>
 
@@ -912,22 +909,43 @@
       <div class="step">
         <div class="step-bullet">✓</div>
         <div class="step-content">
-          <div class="step-title"><code>claude --version</code> returns a version number</div>
-          <p class="step-desc">Confirms Claude Code is installed and on your PATH.</p>
+          <div class="step-title">Claude Code is installed and on your PATH</div>
+          <div class="code-block" style="margin-top:8px">
+            <div class="code-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">copy</button>
+            </div>
+            <pre><code><span class="line-cmd">claude --version</span>
+<span class="line-comment"># Should return a version number e.g. Claude Code 2.x.x</span></code></pre>
+          </div>
         </div>
       </div>
       <div class="step">
         <div class="step-bullet">✓</div>
         <div class="step-content">
-          <div class="step-title"><code>/mcp</code> shows figma with green status</div>
-          <p class="step-desc">Confirms the MCP server is registered and authenticated.</p>
+          <div class="step-title">Figma MCP server shows green status</div>
+          <div class="code-block" style="margin-top:8px">
+            <div class="code-header">
+              <span class="code-lang">claude code</span>
+              <button class="copy-btn" onclick="copyCode(this)">copy</button>
+            </div>
+            <pre><code><span class="line-cmd">/mcp</span>
+<span class="line-comment"># figma (http, remote) should show a green connected status</span></code></pre>
+          </div>
         </div>
       </div>
       <div class="step">
         <div class="step-bullet">✓</div>
         <div class="step-content">
-          <div class="step-title">"Send this to Figma" creates frames in your workspace</div>
-          <p class="step-desc">The end-to-end flow from browser to Figma is working.</p>
+          <div class="step-title">Send your UI to Figma</div>
+          <div class="code-block" style="margin-top:8px">
+            <div class="code-header">
+              <span class="code-lang">claude code</span>
+              <button class="copy-btn" onclick="copyCode(this)">copy</button>
+            </div>
+            <pre><code><span class="line-cmd">Send this to Figma</span>
+<span class="line-comment"># Captures your live browser UI as editable Figma layers</span></code></pre>
+          </div>
         </div>
       </div>
     </div>
@@ -962,12 +980,8 @@
 
   <!-- ── Footer ── -->
   <footer class="footer">
-    <div class="footer-left">Based on the Builder.io guide · February 2026</div>
+    <div class="footer-left">Claude Code + Figma MCP Setup Guide</div>
     <div class="footer-links">
-      <a href="https://www.builder.io/blog/claude-code-to-figma" class="footer-link" target="_blank">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Source article
-      </a>
       <a href="https://docs.claude.com/en/docs/claude-code/overview" class="footer-link" target="_blank">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         Claude Code docs
