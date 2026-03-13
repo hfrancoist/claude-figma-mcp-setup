@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --bg: #ffffff;
       --bg-secondary: #f9f9f9;
@@ -33,7 +33,7 @@
       --font-sans: 'Geist', system-ui, sans-serif;
       --font-mono: 'Geist Mono', 'Fira Code', monospace;
     }
- 
+
     body {
       font-family: var(--font-sans);
       background: var(--bg);
@@ -42,14 +42,14 @@
       font-size: 15px;
       -webkit-font-smoothing: antialiased;
     }
- 
+
     /* ── Layout ── */
     .container {
       max-width: 768px;
       margin: 0 auto;
       padding: 0 24px;
     }
- 
+
     /* ── Top bar ── */
     .topbar {
       border-bottom: 1px solid var(--border);
@@ -96,7 +96,7 @@
       padding: 2px 8px;
       letter-spacing: 0.02em;
     }
- 
+
     /* ── Hero ── */
     .hero {
       padding: 56px 0 40px;
@@ -156,7 +156,7 @@
       color: var(--text-muted);
     }
     .meta-chip svg { color: var(--text-subtle); }
- 
+
     /* ── TOC / Nav pills ── */
     .toc {
       display: flex;
@@ -188,14 +188,14 @@
       font-size: 10px;
       color: var(--text-subtle);
     }
- 
+
     /* ── Section ── */
     .section {
       padding: 40px 0;
       border-bottom: 1px solid var(--border);
     }
     .section:last-child { border-bottom: none; }
- 
+
     .section-header {
       display: flex;
       align-items: center;
@@ -220,7 +220,7 @@
       font-weight: 600;
       letter-spacing: -0.02em;
     }
- 
+
     /* ── Prose ── */
     p {
       color: var(--text-muted);
@@ -229,7 +229,7 @@
     }
     p:last-child { margin-bottom: 0; }
     strong { color: var(--text); font-weight: 500; }
- 
+
     /* ── Cards ── */
     .card {
       border: 1px solid var(--border);
@@ -273,7 +273,7 @@
     .card-body {
       padding: 18px;
     }
- 
+
     /* ── Steps ── */
     .steps { display: flex; flex-direction: column; gap: 12px; }
     .step {
@@ -308,7 +308,7 @@
       line-height: 1.6;
       margin: 0;
     }
- 
+
     /* ── Code blocks ── */
     .code-block {
       background: var(--code-bg);
@@ -358,7 +358,7 @@
     .line-flag { color: #a78bfa; }
     .line-url { color: #67e8f9; }
     .line-output { color: #86efac; }
- 
+
     /* Inline code */
     p code, li code {
       font-family: var(--font-mono);
@@ -369,7 +369,7 @@
       padding: 1px 6px;
       color: var(--text);
     }
- 
+
     /* ── Callout ── */
     .callout {
       display: flex;
@@ -388,14 +388,14 @@
       line-height: 1.6;
     }
     .callout p strong { color: var(--warning-text); }
- 
+
     .callout.info {
       background: #eff6ff;
       border-color: #bfdbfe;
     }
     .callout.info p { color: #1e40af; }
     .callout.info p strong { color: #1e40af; }
- 
+
     /* ── Verify terminal ── */
     .terminal {
       background: #0c0c0e;
@@ -423,7 +423,7 @@
     .t-cmd { color: #e4e4e7; }
     .t-out { color: #86efac; }
     .t-dim { color: #3f3f46; }
- 
+
     /* ── Platform tabs ── */
     .platform-tabs { margin-bottom: 4px; }
     .tab-row {
@@ -459,7 +459,7 @@
       border-radius: 0 0 var(--radius) var(--radius);
       margin: 0;
     }
- 
+
     /* ── Prereq list ── */
     .prereq-grid {
       display: grid;
@@ -490,7 +490,7 @@
       font-size: 11px;
       color: var(--text-subtle);
     }
- 
+
     /* ── Verify badge ── */
     .verify-row {
       display: flex;
@@ -518,7 +518,7 @@
       margin: 0;
     }
     .verify-text strong { color: var(--text); }
- 
+
     /* ── Footer ── */
     .footer {
       padding: 32px 0;
@@ -540,15 +540,48 @@
       gap: 4px;
     }
     .footer-link:hover { color: var(--text); }
- 
+
     @media (max-width: 560px) {
       .hero h1 { font-size: 26px; }
       .prereq-grid { grid-template-columns: 1fr; }
+
+      /* Platform tabs — wrap into 2x2 grid on small screens */
+      .tab-row {
+        flex-wrap: wrap;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+      .tab-btn {
+        flex: 1 1 calc(50% - 1px);
+        min-width: 0;
+        font-size: 11px;
+        padding: 8px 6px;
+        border-bottom: 1px solid var(--border);
+      }
+      .tab-btn:nth-child(2) { border-right: none; }
+      .tab-btn:nth-child(3) { border-bottom: none; }
+      .tab-btn:nth-child(4) { border-right: none; border-bottom: none; }
+
+      /* Code blocks - tighten padding and font size */
+      pre { padding: 12px; }
+      .code-header { padding: 8px 12px; }
+      code { font-size: 11.5px; }
+
+      /* Cards - reduce inner padding */
+      .card-head { padding: 12px 14px; }
+      .card-body { padding: 14px; }
+
+      /* Topbar - hide subtitle on very small screens */
+      .topbar-title { display: none; }
+      .topbar-badge { font-size: 10px; }
+
+      /* Footer - stack vertically */
+      .footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .footer-links { flex-wrap: wrap; gap: 10px; }
     }
   </style>
 </head>
 <body>
- 
+
 <!-- ── Top bar ── -->
 <header class="topbar">
   <div class="container topbar-inner">
@@ -564,7 +597,7 @@
     <span class="topbar-badge">v2026</span>
   </div>
 </header>
- 
+
 <!-- ── Hero ── -->
 <main>
 <div class="container">
@@ -586,10 +619,10 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         macOS · Linux · Windows
       </span>
- 
+
     </div>
   </section>
- 
+
   <!-- ── TOC ── -->
   <nav class="toc">
     <a href="#prerequisites" class="toc-link"><span class="toc-num">00</span> Prerequisites</a>
@@ -599,7 +632,7 @@
     <a href="#send-to-figma" class="toc-link"><span class="toc-num">04</span> Send UI to Figma</a>
     <a href="#verify" class="toc-link"><span class="toc-num">05</span> Verify</a>
   </nav>
- 
+
   <!-- ── 00 Prerequisites ── -->
   <section class="section" id="prerequisites">
     <div class="section-header">
@@ -642,7 +675,7 @@
       <p><strong>Windows users:</strong> Claude Code requires Git for Windows or WSL. Install <a href="https://gitforwindows.org" style="color:inherit">Git for Windows</a> first, then use the PowerShell command in Step 01.</p>
     </div>
   </section>
- 
+
   <!-- ── 01 Install Claude Code ── -->
   <section class="section" id="install-claude">
     <div class="section-header">
@@ -652,7 +685,7 @@
     <p>
       Anthropic now ships a <strong>native binary installer</strong> — the recommended method. No Node.js dependency, auto-updates in the background. Pick your platform below.
     </p>
- 
+
     <div class="platform-tabs">
       <div class="tab-row">
         <button class="tab-btn active" onclick="switchTab(event,'mac')">macOS / Linux</button>
@@ -660,7 +693,7 @@
         <button class="tab-btn" onclick="switchTab(event,'brew')">Homebrew</button>
         <button class="tab-btn" onclick="switchTab(event,'npm')">npm (legacy)</button>
       </div>
- 
+
       <div class="tab-panel active" id="tab-mac">
         <div class="code-block">
           <div class="code-header">
@@ -671,7 +704,7 @@
 <span class="line-cmd">curl -fsSL https://claude.ai/install.sh | bash</span></code></pre>
         </div>
       </div>
- 
+
       <div class="tab-panel" id="tab-win">
         <div class="code-block">
           <div class="code-header">
@@ -682,7 +715,7 @@
 <span class="line-cmd">irm https://claude.ai/install.ps1 | iex</span></code></pre>
         </div>
       </div>
- 
+
       <div class="tab-panel" id="tab-brew">
         <div class="code-block">
           <div class="code-header">
@@ -694,7 +727,7 @@
 <span class="line-cmd">brew upgrade claude-code</span></code></pre>
         </div>
       </div>
- 
+
       <div class="tab-panel" id="tab-npm">
         <div class="code-block">
           <div class="code-header">
@@ -707,12 +740,12 @@
         </div>
       </div>
     </div>
- 
+
     <div class="callout" style="margin-top:14px">
       <span class="callout-icon">⚠️</span>
       <p>Never run <code>sudo npm install -g</code> — it creates permission issues. If you see <code>EACCES</code> errors, configure a user-level npm directory instead. See the troubleshooting note at the bottom of this guide.</p>
     </div>
- 
+
     <div style="margin-top:16px">
       <p>Once installed, verify it's working:</p>
       <div class="terminal">
@@ -727,13 +760,13 @@
 <span class="t-dim"># A version number means you're good to go</span></code></pre>
       </div>
     </div>
- 
+
     <div class="callout info" style="margin-top:14px">
       <span class="callout-icon">💡</span>
       <p>If you see <strong>command not found</strong>, open a new terminal window. The installer adds Claude to your PATH, but the current session needs to reload. If it persists, run <code>source ~/.zshrc</code> or <code>source ~/.bashrc</code>.</p>
     </div>
   </section>
- 
+
   <!-- ── 02 Add Figma MCP ── -->
   <section class="section" id="add-figma-mcp">
     <div class="section-header">
@@ -743,7 +776,7 @@
     <p>
       The Figma MCP server connects Claude Code to your Figma workspace. You can add it scoped to a single project or globally across all projects.
     </p>
- 
+
     <div class="card">
       <div class="card-head">
         <div class="card-head-left">
@@ -764,7 +797,7 @@
         </div>
       </div>
     </div>
- 
+
     <div class="card">
       <div class="card-head">
         <div class="card-head-left">
@@ -785,13 +818,13 @@
         </div>
       </div>
     </div>
- 
+
     <div class="callout info" style="margin-top:4px">
       <span class="callout-icon">ℹ️</span>
       <p>If the Figma server doesn't appear after adding it, <strong>restart Claude Code completely</strong>. MCP connections initialize at startup, so adding a new server mid-session requires a restart.</p>
     </div>
   </section>
- 
+
   <!-- ── 03 Authenticate ── -->
   <section class="section" id="authenticate">
     <div class="section-header">
@@ -801,7 +834,7 @@
     <p>
       Once Claude Code is running, complete the OAuth flow to connect your Figma account.
     </p>
- 
+
     <div class="steps">
       <div class="step">
         <div class="step-bullet">1</div>
@@ -832,7 +865,7 @@
         </div>
       </div>
     </div>
- 
+
     <div class="terminal" style="margin-top:16px">
       <div class="terminal-bar">
         <span class="terminal-dot r"></span>
@@ -845,13 +878,13 @@
   <span class="t-dim">→ Authenticate</span>
 <span class="t-out">  ✓ Authentication successful. Connected to figma</span></code></pre>
     </div>
- 
+
     <div class="verify-row">
       <div class="verify-icon">✅</div>
       <p class="verify-text">Run <code>/mcp</code> again — the figma server should show a <strong>green status</strong>. That means you're fully connected.</p>
     </div>
   </section>
- 
+
   <!-- ── 04 Send to Figma ── -->
   <section class="section" id="send-to-figma">
     <div class="section-header">
@@ -861,7 +894,7 @@
     <p>
       With the MCP connected, you can capture any live, running UI from your browser — localhost, staging, or production — and send it as editable Figma layers.
     </p>
- 
+
     <div class="steps">
       <div class="step">
         <div class="step-bullet">1</div>
@@ -885,18 +918,18 @@
         </div>
       </div>
     </div>
- 
+
     <div class="callout" style="margin-top:16px">
       <span class="callout-icon">⚠️</span>
       <p><strong>Note:</strong> The <code>generate_figma_design</code> tool is currently <strong>Claude Code-only</strong> and <strong>Remote MCP-only</strong>. The Desktop MCP server does not support this direction.</p>
     </div>
- 
+
     <div class="callout info" style="margin-top:8px">
       <span class="callout-icon">💡</span>
       <p>You can capture multiple screens in a single session. Figma preserves the sequence across frames, so multi-screen flows stay coherent as a set of related layouts.</p>
     </div>
   </section>
- 
+
   <!-- ── 05 Verify ── -->
   <section class="section" id="verify">
     <div class="section-header">
@@ -904,7 +937,7 @@
       <h2>Verify Everything Works</h2>
     </div>
     <p>Run these quick checks to confirm the full stack is connected.</p>
- 
+
     <div class="steps">
       <div class="step">
         <div class="step-bullet">✓</div>
@@ -949,7 +982,7 @@
         </div>
       </div>
     </div>
- 
+
     <div style="margin-top:24px; padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-secondary);">
       <div style="font-size:13px; font-weight:500; color:var(--text); margin-bottom:10px;">🛠 Troubleshooting</div>
       <div class="steps">
@@ -977,7 +1010,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- ── Footer ── -->
   <footer class="footer">
     <div class="footer-left">Claude Code + Figma MCP Setup Guide</div>
@@ -994,7 +1027,7 @@
   </footer>
 </div>
 </main>
- 
+
 <script>
   function switchTab(e, id) {
     const row = e.target.closest('.tab-row');
@@ -1004,7 +1037,7 @@
     e.target.classList.add('active');
     tabs.querySelector('#tab-' + id).classList.add('active');
   }
- 
+
   function copyCode(btn) {
     const code = btn.closest('.code-block').querySelector('pre').innerText;
     navigator.clipboard.writeText(code).then(() => {
